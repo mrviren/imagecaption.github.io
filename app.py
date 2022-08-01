@@ -1,21 +1,15 @@
 from flask import Flask,render_template,request
-import logging
 
-logging.basicConfig(filename='logs.txt',filemode='w',format='%(asctime)s %(message)s',)
-logger = logging.getLogger()
- 
-# Setting the threshold of logger to DEBUG
-logger.setLevel(logging.DEBUG)
+
 app = Flask(__name__)
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 1
-
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import pickle
 import numpy as np
 from numpy import array
 import pandas as pd
 import matplotlib.pyplot as plt
 import string
-import os
 from PIL import Image
 import glob
 import pickle
@@ -36,7 +30,7 @@ from keras_preprocessing.text import Tokenizer
 from keras.utils.np_utils import to_categorical
 from keras_preprocessing.sequence import pad_sequences
 
-logger.debug("all dependencies imported")
+
 
 def preprocess(image_path):
     # Converting all the images to size 299x299 as expected by the inception v3 model
@@ -60,29 +54,10 @@ def encode(image):
     return fea_vec
 
 
-logger.debug("Feature extraction model imported successfully")
-
 max_length = 34
 vocab_size = 2531
 embedding_dim = 200
-# inputs1 = Input(shape=(2048,)) # feature vector
-# fe1 = Dropout(0.5)(inputs1)
-# fe2 = Dense(256, activation='relu')(fe1)
 
-# inputs2 = Input(shape=(max_length,)) # word sequence
-# se1 = Embedding(vocab_size, embedding_dim, mask_zero=True)(inputs2)
-# se2 = Dropout(0.5)(se1)
-# se3 = LSTM(256)(se2)
-
-# decoder1 = add([fe2, se3])
-# decoder2 = Dense(256, activation='relu')(decoder1)
-# outputs = Dense(vocab_size, activation='softmax')(decoder2)
-# mdl = Model(inputs=[inputs1, inputs2], outputs=outputs)
-
-# embedding_matrix = pickle.load(open('static/embedding_matrix.pkl','rb'))
-# mdl.layers[2].set_weights([embedding_matrix])
-# mdl.layers[2].trainable = False
-# mdl.compile(loss='categorical_crossentropy', optimizer = 'adam')
 
 mdl = load_model('model_weights/weight9.h5')
 
@@ -91,7 +66,7 @@ mdl = load_model('model_weights/weight9.h5')
 wordtoix = pickle.load(open('static/wordtoix.pkl','rb'))
 ixtoword = pickle.load(open('static/ixtoword.pkl','rb'))
 
-logger.debug("Caption generator model imported successfully")
+
 
 def greedySearch(photo):
     in_text = 'startseq'
@@ -107,7 +82,6 @@ def greedySearch(photo):
     final = in_text.split()
     final = final[1:-1]
     final = ' '.join(final)
-    logger.debug("Task completed successfully")
     return final
 
 
@@ -125,7 +99,6 @@ def after():
     fc = greedySearch(fv)
     return render_template('predict.html',fc = fc)
 
-logger.debug("Task completed successfully")
 
 if __name__ == "_main_":
-    app.run(host="0.0.0.0",port=5000)
+    app.run(host = '0.0.0.0',port = 5000)
