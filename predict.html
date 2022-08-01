@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        .content {
+          max-width: 500px;
+          margin: auto;
+        }
+
+        .fontsz{
+            font-size: large;
+        }
+        </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="content">
+        <h1>Image captioning Model</h1>
+        <img src="{{url_for('static', filename='file.jpg')}}" alt="image" height=340px>
+        <br>
+        <h3>Captions:</h3>
+        <p class = "fontsz">{{fc}}</p>
+    
+        
+      </div>
+      
+      
+    
+</body>
+</html>
