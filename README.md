@@ -30,8 +30,7 @@ Flickr8K Dataset is used which is easily available.
 
 
 ## Examples
-![man is squatting on his back in the mountains](https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80)
-man is squatting on his back in the mountains
+<img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80.png"  width="200"/><br>man is squatting on his back in the mountains
 
-![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS98AfLVtejR2Dz4IDrkKNtxZnlxaU_xIO5Xw&usqp=CAU)
-two people are walking on the side of road
+![image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS98AfLVtejR2Dz4IDrkKNtxZnlxaU_xIO5Xw&usqp=CAU)
+<br>two people are walking on the side of road
